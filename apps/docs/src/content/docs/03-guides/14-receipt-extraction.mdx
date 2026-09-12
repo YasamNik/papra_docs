@@ -33,6 +33,21 @@ RECEIPT_EXTRACTION_MODEL=anthropic://claude-haiku-4-5
 
 Extraction quality depends on the OCR text. Thermal receipts photographed with a phone are hard for the default Tesseract strategy; the `mistral-ocr` or `azure-di` content extraction strategies give much better results (see [Content extraction](/guides/content-extraction)).
 
+### Using OpenRouter
+
+OpenRouter works through the built-in `openrouter` adapter, no extra configuration needed:
+
+```bash
+AI_IS_ENABLED=true
+RECEIPT_EXTRACTION_ENABLED=true
+OPENROUTER_API_KEY=sk-or-v1-...
+RECEIPT_EXTRACTION_MODEL=openrouter://google/gemini-2.5-flash
+```
+
+Pick a model that supports **structured outputs** (`response_format: json_schema` with `strict: true`) **and streaming**, since the adapter always streams. Extraction fails with `missing structured result` otherwise.
+
+Support is per endpoint rather than per model on OpenRouter: the same model can be served by several providers, and only some of them honour `json_schema`. When a request is routed to one that does not, OpenRouter may quietly fall back to looser JSON and the extraction degrades instead of failing loudly. Check the `structured_outputs` flag in the Providers section of the model page before settling on a model.
+
 ## Configuration
 
 | Variable | Default | Description |
