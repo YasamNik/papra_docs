@@ -45,6 +45,8 @@ ingestion
 *.traineddata
 
 .eslintcache
-.claude
+# Local Claude Code state stays out, but the shared session skill is tracked.
+.claude/*
+!.claude/skills/
 .opencode
 AGENTS.md
