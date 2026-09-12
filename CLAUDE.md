@@ -3,7 +3,7 @@
 Fork of papra-hq/papra, extended into a receipt and document capture app (mobile scan, AI
 extraction).
 
-**New here?** Read `HISTORY.md` first for the background: what this fork is, what upstream
+**New here?** Read `START-HERE.md` first, then `HISTORY.md` for the background: what this fork is, what upstream
 already provided, what has been built, and what is still unproven. Then read the top entry
 of `WORKLOG.md` for current state. This file is the quick reference.
 
