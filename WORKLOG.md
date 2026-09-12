@@ -3,6 +3,20 @@
 Active branch: `feat/receipts`
 Newest first. One entry per session. Format: see the papra-session skill (`references/worklog.md`).
 
+## 2026-09-12 · `feat/receipts` · Handoff to local Claude Code
+
+**Done**
+- Added `HISTORY.md`: full background on the fork, what upstream already provided, what was built and why, the mistakes worth not repeating, and what is still unproven.
+- Rewrote `CLAUDE.md` with a "Running locally" section (ports, migrations, `.env`) and a known-gotchas section.
+- Moved the `papra-session` skill into the repo at `.claude/skills/papra-session/` so Claude Code picks it up automatically. Scripts now default to the current checkout instead of a sandbox path, and push with the machine's own git credentials instead of a pasted token.
+
+**Decisions**
+- Work moves off Claude's web sandbox onto Yasam's machine with Claude Code. Reasons: the sandbox network allowlist blocks `openrouter.ai`, the filesystem is wiped between chats, and every push needed a token pasted into chat history.
+
+**Open / Next**
+- First job locally: run extraction against a real model and judge the output quality. Everything so far rests on that being good enough.
+- Then the four UI fixes listed in the entry below.
+
 ## 2026-09-12 · `feat/receipts` · OpenRouter validation
 
 **Done**
